@@ -1,3 +1,9 @@
+
+
+
+
+
+
 # Potala Vista
 
 PotalaVista is an online travel management platform designed to streamline the process of discovering and booking travel packages. It provides users with a comprehensive system to explore various destinations, book customized travel packages, and manage their bookings all in one place.
@@ -6,4 +12,3 @@ There are 3 actors in the system. Admin can monitor all the system activities li
 
 
 
-Bishal Sen
