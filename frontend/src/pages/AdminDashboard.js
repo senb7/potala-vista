@@ -1,6 +1,9 @@
+// Filename: AdminDashboard.js
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ManageUsers from "../components/ManageUsers.js";
+import DateTimeDisplay from "../components/DateTimeDisplay.js"; // Import DateTimeDisplay
 
 const AdminDashboard = () => {
   const [adminName, setAdminName] = useState("");
@@ -42,39 +45,40 @@ const AdminDashboard = () => {
   };
 
   return (
-    // top section
+    // Top section
     <div className="container" style={{ marginTop: "150px", height: "500px" }}>
+
+      {/* Top div */}
       <div className="d-flex justify-content-between align-items-center bg-light p-3 shadow-sm">
         <h4 className="m-0" style={{ fontSize: "24px", fontWeight: "bold" }}>
           Admin Dashboard - {adminName || "Loading..."}
         </h4>
+        <DateTimeDisplay />
         <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
       </div>
 
-
-      {/* count section */}
+      {/* Count section */}
       <div className="p-4 text-center mt-3" style={styles.container}>
         {error && <div className="alert alert-danger">{error}</div>}
 
         <div style={{ ...styles.item, backgroundColor: '#f8d7da' }}>
           <p>Total Users: <span style={styles.number}>{totalUsers - 1}</span></p>
         </div>
-        <div style={{ ...styles.item, backgroundColor: '#cfe2f3' }}>
+        <div style={{ ...styles.item, backgroundColor: '#55ff0099' }}>
           <p>Visitors: <span style={styles.number}>{visitorCount}</span></p>
         </div>
-        <div style={{ ...styles.item, backgroundColor: '#55ff00cc' }}>
+        <div style={{ ...styles.item, backgroundColor: '#cfe2f3' }}>
           <p>Travel Agencies: <span style={styles.number}>{agencyCount}</span></p>
         </div>
       </div>
 
-
-      {/* manage users section */}
+      {/* Manage users section */}
       <ManageUsers refreshUserCounts={fetchUserCounts} />
     </div>
   );
 };
 
-// styles
+// Styles
 const styles = {
   container: {
     display: 'flex',
