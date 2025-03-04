@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
+const packageRoutes = require("./routes/packageRoutes");
 const feedbackRoutes = require('./routes/feedbackRoutes');
 
 
@@ -19,6 +20,13 @@ app.use(express.json());
 // API ENDPOINTS
 // url endpoints for all users
 app.use('/api/users', userRoutes);
+
+// serve images
+app.use('/data', express.static('data'));
+
+// upload package routes
+app.use("/api/packages", packageRoutes);
+
 
 // feedback route
 app.use('/api/feedback', feedbackRoutes);
