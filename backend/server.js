@@ -5,6 +5,7 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
 const packageRoutes = require("./routes/packageRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
 const feedbackRoutes = require('./routes/feedbackRoutes');
 
 
@@ -24,9 +25,11 @@ app.use('/api/users', userRoutes);
 // serve images
 app.use('/data', express.static('data'));
 
-// upload package routes
+// package routes
 app.use("/api/packages", packageRoutes);
 
+// booking route
+app.use("/api/bookings", bookingRoutes);
 
 // feedback route
 app.use('/api/feedback', feedbackRoutes);

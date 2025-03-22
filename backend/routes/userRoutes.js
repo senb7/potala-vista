@@ -1,6 +1,6 @@
 // routes/userRoutes.js
 const express = require("express");
-const { signupUser, loginUser, sendResetCode, verifyResetCode, resetPassword, getUserCountsByRole, getUsers, updateUser, deleteUser, } = require("../controllers/userController");
+const { signupUser, loginUser, sendResetCode, verifyResetCode, resetPassword, getUserCountsByRole, getUsers, updateUser, deleteUser, verifyEmail, } = require("../controllers/userController");
 const router = express.Router();
 
 
@@ -21,6 +21,7 @@ router.get("/", getUsers);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
 
-
+// Email verification route
+router.get("/verify/:token", verifyEmail);
 
 module.exports = router;

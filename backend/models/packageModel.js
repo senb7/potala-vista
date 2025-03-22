@@ -12,8 +12,11 @@ const packageSchema = new mongoose.Schema(
     rating: { type: String, enum: ['Best', 'Good', 'Bad'], default: 'Good' },
     feedback: { type: String, default: null },
     feedbackDate: { type: Date, default: null },
+    maxCapacity: { type: Number, required: true }, // Maximum number of visitors allowed
+    currentBookings: { type: Number, default: 0 }, // Number of confirmed bookings
   },
   { timestamps: true }
 );
 
 module.exports = mongoose.model('Package', packageSchema);
+
